@@ -11,7 +11,7 @@ The NMR logging system consists of:
 Data streams from each spectrometer:
 1. MAS monitoring: Drive, bearing, main pressures, MAS rate
 2. Field logging: Parsed from helium log files
-3. Field drift detection: Monitors for abnormal field variations
+3. Field detection: Useful e.g. for in situ work where the lock solvent chemical shift depends on the state-of-charge of a battery
 
 This provides instructions for an Avance Neo system running in Almalinux, with a MAS3 unit (software 20240830_1845)
 
@@ -38,7 +38,7 @@ Follow official documentation:
 ### 2. Deploy NMR Logger Server
 ```bash
 # Clone repository
-git clone https://github.com/ThomasKressNMR/NMR-Facility-Logging.git
+git clone https://github.com/ThomasKressNMR/NMR-Facility-Logger.git
 cd NMR-Facility-Logging/nmr-logger
 Edit `.env` file: to set secure passwords for InfluxDB and Grafana
 
@@ -212,7 +212,7 @@ This allows using `http://nmr-logger:8086` instead of IP addresses in configurat
 #### Clone Repository
 ```bash
 # Clone to appropriate location
-git clone https://github.com/ThomasKressNMR/NMR-Facility-Logging.git
+git clone https://github.com/ThomasKressNMR/NMR-Facility-Logger.git
 cd NMR-Facility-Logging/spectrometer
 ```
 
@@ -222,7 +222,7 @@ cd NMR-Facility-Logging/spectrometer
 nano docker-compose.yml
 ```
 
-Comment out any services you don't need.
+**Comment out any services you don't need.** (e.g. you might not have a MAS unit, or not care about tracking the field at a second resolution)
 
 Windows users: Change the volume mount from:
 ```yaml
