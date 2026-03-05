@@ -1,0 +1,30 @@
+name: nmr-facility-logging
+services:
+  mas_logger:
+    build:
+      context: .
+      dockerfile: Dockerfile.mas
+    container_name: mas
+    restart: always
+    env_file:
+      - .env
+
+  helium_logger:
+    build:
+      context: .
+      dockerfile: Dockerfile.helium
+    container_name: helium
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - /opt/:/opt
+
+  field_logger:
+    build:
+      context: .
+      dockerfile: Dockerfile.field
+    container_name: field
+    restart: always
+    env_file:
+      - .env

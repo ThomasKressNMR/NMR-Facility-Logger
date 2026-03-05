@@ -1,0 +1,16 @@
+# Use an official Python image
+FROM python:3.10-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the script and requirements file
+COPY requirements.txt .
+COPY field_logger.py .
+COPY .env .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set the command to run the script
+CMD ["python", "-u","field_logger.py"]
