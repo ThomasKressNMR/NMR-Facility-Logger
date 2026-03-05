@@ -222,7 +222,7 @@ cd NMR-Facility-Logging/spectrometer
 nano docker-compose.yml
 ```
 
-**Comment out any services you don't need.** (e.g. you might not have a MAS unit, or not care about tracking the field at a second resolution)
+⚠️ **IMPORTANT: Comment out any services you don't need.** (e.g. you might not have a MAS unit, or not care about tracking the field at a second resolution)
 
 Windows users: Change the volume mount from:
 ```yaml
