@@ -96,7 +96,7 @@ def process_logs(parse_all=False):
     if not log_file:
         return
 
-    with open(log_file, "r") as file:
+    with open(log_file, "r", errors="replace") as file:
         lines = file.readlines()
         if not lines:
             print("⚠️ Log file is empty.")
